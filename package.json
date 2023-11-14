@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev --experimental-integrations",
     "start": "astro dev --experimental-integrations",
-    "build": "pnpm install --no-frozen-lockfile && __SWSR_DEV=dev astro build --experimental-integrations",
+    "build": "astro build",
     "preview": "astro preview",
     "deploy": "npm run build && netlify deploy --prod --dir=netlify"
   },
@@ -19,6 +19,7 @@
     "@cloudflare/kv-asset-handler": "^0.2.0",
     "astro-service-worker": "^0.1.2",
     "esbuild": "^0.14.38",
+    "pnpm": "^8.10.4",
     "workbox-build": "^6.5.3",
     "workbox-precaching": "^6.5.3"
   },
