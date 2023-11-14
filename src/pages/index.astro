@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import '../components/my-el.js';
+
+const posts = (await Astro.glob('../blogs/*.md')).sort((a,b) => a.frontmatter.id - b.frontmatter.id);
+---
+<Layout>
+	<div class="profile">
+		<img src="/avatar.png" alt="avatar"/>
+		<div>
+			<p>Pascal Schilp is a software developer based in the Netherlands, who currently works for ING.<br/><br/>In his free time, he enjoys hacking on hobby projects, playing phasmaphobia or PUBG and spending time with his partner.</p>
+			<ul class="links">
+				<li><a href="/about">about</a></li>
+				<li><a href="/networkonly">networkonly</a></li>
+				<li><a href="/networkonly-endpoint">networkonly endpoint</a></li>
+			</ul>
+		</div>
+	</div>
+	<h2>Blogs</h2>
+	<div>
+	{posts.map((post) => (
+		<article>
+			<h3>{post.frontmatter.title}</h3>
+			<p>{post.frontmatter.description}</p>
+			<a href={`blogs/${post.frontmatter.id}`}>Read more</a>
+		</article>
+	))}
+	</div>
+	<generic-tabs selected="1" label="people">
+		<button slot="tab">About</button>
+		<button slot="tab">Info</button>
+
+		<p slot="panel">Isn't that kind of crazy</p>
+		<p slot="panel">You can even render custom elements on the Service Worker Side</p>
+	</generic-tabs>
+</Layout>

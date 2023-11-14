@@ -1,0 +1,38 @@
+{
+  "name": "astro-service-worker",
+  "version": "0.1.2",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --experimental-integrations",
+    "start": "astro dev --experimental-integrations",
+    "build": "__SWSR_DEV=dev astro build --experimental-integrations",
+    "preview": "astro preview",
+    "deploy": "npm run build && netlify deploy --prod --dir=netlify"
+  },
+  "devDependencies": {
+    "@generic-components/components": "^1.1.5",
+    "astro": "^1.0.0-beta.24",
+    "custom-elements-ssr": "^0.0.11"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.2.0",
+    "astro-service-worker": "^0.1.2",
+    "esbuild": "^0.14.38",
+    "workbox-build": "^6.5.3",
+    "workbox-precaching": "^6.5.3"
+  },
+  "keywords": [
+    "astro",
+    "workbox",
+    "ssr",
+    "swsr",
+    "serviceworker",
+    "pwa"
+  ],
+  "files": [
+    "index.js",
+    "service-worker-integration",
+    "adapter"
+  ]
+}
