@@ -1,11 +1,11 @@
 import { defineConfig } from 'astro/config';
 // import customElements from 'custom-elements-ssr/astro.js';
 import serviceWorker from './index.js';
-import worker, { cloudflare } from './adapter/index.js';
+import worker, { netlify } from './adapter/index.js';
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: worker(cloudflare),
+  adapter: worker(netlify),
   integrations: [
     // customElements(),
     serviceWorker({
